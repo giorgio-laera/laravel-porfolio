@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,10 +23,13 @@ Route::middleware(['auth','verified'])
 ->name('admin.')
 ->prefix('admin')
 ->group(function(){
-    //create ner route for admin
+    //create new route for admin
     Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard');
      Route::get('/profile', [DashboardController::class, 'profile'])
     ->name('profile');
 });
+
+Route::resource('project',ProjectController::class)
+->middleware(['auth', 'verified']) ;
 require __DIR__.'/auth.php';

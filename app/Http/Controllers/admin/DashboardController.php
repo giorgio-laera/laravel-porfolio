@@ -10,6 +10,7 @@ class DashboardController extends Controller
 {
 // create public function for page
     public function index(){
+        //return the date of user
         $user=Auth::user();
         return $user->id;
     }
