@@ -39,7 +39,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        $project=Project::first('id', $id);
+        $project=Project::where('id', $id)->first();
         // dd($project);
         return view('projects.show',  compact('project'));
     }
