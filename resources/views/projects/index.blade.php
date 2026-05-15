@@ -20,7 +20,7 @@
                 <th>{{$project->client}}</th>
                 <th>{{$project->start_date}}</th>
                 <th>{{$project->end_date}}</th>
-                <th><a href="">visualizza</a></th>
+                <th><a href="project/{{$project->id}}">visualizza</a></th>
             </tr>
         @endforeach
     </tbody>
