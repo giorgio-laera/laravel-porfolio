@@ -36,6 +36,7 @@ class ProjectController extends Controller
         $newProject= new Project();
         $newProject->name = $data['name'];
         $newProject->client=$data['client'];
+        $newProject->type_of_language=$data['type_of_language'];
         $newProject->start_date=$data['start_date'];
         $newProject->end_date=$data['end_date'];
         $newProject->description=$data['description'];

@@ -1,12 +1,9 @@
 <?php
-
 namespace Database\Seeders;
 
 use App\Models\Project;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
-
+use Illuminate\Database\Seeder;
 
 class ProjectTableSeeder extends Seeder
 {
@@ -15,22 +12,56 @@ class ProjectTableSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        for($i=0; $i<10; $i++){
+        $languages= [
+            "JavaScript",
+            "Python",
+            "Java",
+            "C",
+            "C++",
+            "C#",
+            "PHP",
+            "Ruby",
+            "Swift",
+            "Kotlin",
+            "Go",
+            "Rust",
+            "TypeScript",
+            "Scala",
+            "Perl",
+            "R",
+            "Dart",
+            "Lua",
+            "Haskell",
+            "MATLAB",
+            "Objective-C",
+            "Visual Basic",
+            "Assembly",
+            "SQL",
+            "Fortran",
+            "COBOL",
+            "Julia",
+            "Groovy",
+            "Elixir",
+            "F#",
+        ];
+        $countLanguages=count($languages);
+        for ($i = 0; $i < 10; $i++) {
+            $randomNumber=$faker->numberBetween(0, $countLanguages);
 
             $newProject = new Project();
 
-            $start_date=$faker->dateTimeThisDecade();
-            $end_date=$faker->dateTimeBetween($start_date ,'');
+            $start_date = $faker->dateTimeThisDecade();
+            $end_date   = $faker->dateTimeBetween($start_date, '');
 
-             $newProject ->name=$faker->sentence();
-             $newProject ->client=$faker->company();
-             $newProject ->start_date=$start_date;
-             $newProject ->end_date=$end_date;
-             $newProject ->description=$faker->paragraph();
+            $newProject->name             = $faker->sentence();
+            $newProject->client           = $faker->company();
+            $newProject->type_of_language = $languages[$randomNumber];
+            $newProject->start_date       = $start_date;
+            $newProject->end_date         = $end_date;
+            $newProject->description      = $faker->realText($maxNbChars = 200, $indexSize = 2);
 
-             $newProject->save();
+            $newProject->save();
         }
 
-        
     }
 }

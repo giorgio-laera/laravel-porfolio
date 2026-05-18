@@ -15,6 +15,10 @@
             <input type="text" id="client" name="client">
         </div>
         <div class="form-control mb-3 d-flex flex-column">
+            <label for="type_of_language">Linguaggio</label>
+            <input type="text" id="type_of_language" name="type_of_language" >
+        </div>
+        <div class="form-control mb-3 d-flex flex-column">
             <label for="start_date">Data inizio progetto</label>
             <input type="date" id="start_date" name="start_date">
         </div>
