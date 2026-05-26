@@ -12,7 +12,8 @@ class ProjectTableSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        $languages= [
+        
+        $languages = [
             "JavaScript",
             "Python",
             "Java",
@@ -44,23 +45,24 @@ class ProjectTableSeeder extends Seeder
             "Elixir",
             "F#",
         ];
-        $countLanguages=count($languages);
+        $countLanguages = count($languages);
         for ($i = 0; $i < 10; $i++) {
-            $randomNumber=$faker->numberBetween(0, $countLanguages);
+
 
             $newProject = new Project();
 
             $start_date = $faker->dateTimeThisDecade();
             $end_date   = $faker->dateTimeBetween($start_date, '');
 
-            $newProject->name             = $faker->sentence();
-            $newProject->client           = $faker->company();
-            $newProject->type_of_language = $languages[$randomNumber];
-            $newProject->start_date       = $start_date;
-            $newProject->end_date         = $end_date;
-            $newProject->description      = $faker->realText($maxNbChars = 200, $indexSize = 2);
+            $newProject->name              = $faker->sentence();
+            $newProject->client            = $faker->company();
+            $newProject->start_date        = $start_date;
+            $newProject->end_date          = $end_date;
+            $newProject->description       = $faker->sentence();
+            $newProject->type_id          = rand(1, $countLanguages);
 
             $newProject->save();
+           
         }
 
     }
