@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin ;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,7 +24,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        $types=Type::all();
+        return view('projects.create', compact('types'));
     }
 
     /**
@@ -31,12 +33,13 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        
         $data=$request->all();
-
+        // dd($data);
         $newProject= new Project();
         $newProject->name = $data['name'];
         $newProject->client=$data['client'];
-        $newProject->type_of_language=$data['type_of_language'];
+        $newProject->type_id =$data['type_id'];
         $newProject->start_date=$data['start_date'];
         $newProject->end_date=$data['end_date'];
         $newProject->description=$data['description'];
@@ -52,6 +55,7 @@ class ProjectController extends Controller
     {
         // $project=Project::where('id', $id)->first();
         // dd($project);
+
         return view('projects.show',  compact('project'));
     }
 
@@ -61,7 +65,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         // dd($project);
-        return view('projects.edit',compact('project'));
+        $types=Type::all();
+        return view('projects.edit',compact('project','types'));
     }
 
     /**
@@ -73,6 +78,7 @@ class ProjectController extends Controller
         // dd($data);
         $project->name = $data['name'];
         $project->client=$data['client'];
+        $project->type_id =$data['type_id'];
         $project->start_date=$data['start_date'];
         $project->end_date=$data['end_date'];
         $project->description=$data['description'];

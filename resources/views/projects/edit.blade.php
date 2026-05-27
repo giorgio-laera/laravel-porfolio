@@ -16,8 +16,13 @@
             <input type="text" id="client" name="client" value="{{ $project->client}}">
         </div>
         <div class="form-control mb-3 d-flex flex-column">
-            <label for="type_of_language">Linguaggio</label>
-            <input type="text" id="type_of_language" name="type_of_language" value="{{ $project->type_of_language}}">
+            <label for="type_id">Linguaggio</label>
+            <select class="form-select"  id="type_id" name="type_id">
+                 <option selected>{{ $project->type['name']}}</option>
+                @foreach ($types as $type)
+                     <option value={{$type->id}}>{{$type->name}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-control mb-3 d-flex flex-column">
             <label for="start_date">Data inizio progetto</label>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <h1 class="m-3">
+        <h1 class="my-3  ">
             @yield('title')
         </h1>
     </header>

@@ -15,7 +15,7 @@ return new class extends Migration
             //elimino la colonna type_of_language
             $table->dropColumn('type_of_language');
             //updated the foreingId collumn
-            $table->foreignId('type_id')->default(1)->constrained();
+            $table->foreignId('type_id')->nullable()->constrained();
         });
     }
 

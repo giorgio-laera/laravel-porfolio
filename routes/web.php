@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\admin\TypeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,6 +31,9 @@ Route::middleware(['auth','verified'])
     ->name('profile');
 });
 
-Route::resource('project',ProjectController::class)
-->middleware(['auth', 'verified']) ;
+Route::resource('project',ProjectController::class);
+// ->middleware(['auth', 'verified']) ;
+
+Route::resource('type',TypeController::class);
+// ->middleware(['auth', 'verified']) ;
 require __DIR__.'/auth.php';

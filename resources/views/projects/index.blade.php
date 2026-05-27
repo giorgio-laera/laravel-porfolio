@@ -20,10 +20,11 @@
         </thead>
         <tbody>
             @foreach ($projects as $project)
+           
                 <tr>
                     <th class="p-3">{{ $project->name }}</th>
                     <th class="p-3">{{ $project->client }}</th>
-                    <th class="p-3">{{ $project->type_of_language }}</th>
+                    <th class="p-3">{{ $project->type['name'] }}</th>
                     <th class="p-3">{{ $project->start_date }}</th>
                     <th class="p-3">{{ $project->end_date }}</th>
                     <th class="p-3 ">

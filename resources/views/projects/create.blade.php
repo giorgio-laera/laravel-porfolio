@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <form class="container" action="{{route("project.store")}}" method="POST">
+    <form class="container" action="{{ route('project.store') }}" method="POST">
         @csrf
         <div class="form-control mb-3 d-flex flex-column">
             <label for="name">Nome progetto</label>
@@ -15,8 +15,12 @@
             <input type="text" id="client" name="client">
         </div>
         <div class="form-control mb-3 d-flex flex-column">
-            <label for="type_of_language">Linguaggio</label>
-            <input type="text" id="type_of_language" name="type_of_language" >
+            <label for="type_id">Linguaggio</label>
+            <select class="form-select"  id="type_id" name="type_id">
+                @foreach ($types as $type)
+                     <option value={{$type->id}}>{{$type->name}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-control mb-3 d-flex flex-column">
             <label for="start_date">Data inizio progetto</label>
@@ -28,9 +32,9 @@
         </div>
         <div class="form-control mb-3 d-flex flex-column">
             <label for="description">Descrizione</label>
-            <textarea name="description" id="description"  rows="5"></textarea>
+            <textarea name="description" id="description" rows="5"></textarea>
         </div>
-        <a class="btn btn-outline-secondary" href="{{route("project.index")}}">Annulla</a>
+        <a class="btn btn-outline-secondary" href="{{ route('project.index') }}">Annulla</a>
         <input class="btn btn-outline-primary" type="submit" value="Crea nuovo progetto">
     </form>
 
