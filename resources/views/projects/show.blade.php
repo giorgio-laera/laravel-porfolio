@@ -13,7 +13,7 @@
 
     
     </section>
-    <span>Linguaggio: {{$project->type['name']}}</span> <br>
+    <span>Tipo: {{$project->type['name']}}</span> <br>
     <span>{{ $project->start_date }}</span>
     <span>{{ $project->end_date }}</span>
     <p>{{ $project->description }}</p>

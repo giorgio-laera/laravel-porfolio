@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <h1 class="my-3  ">
+        <h1 class="m-3">
             @yield('title')
         </h1>
     </header>
