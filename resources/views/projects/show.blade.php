@@ -17,6 +17,9 @@
     <span>{{ $project->start_date }}</span>
     <span>{{ $project->end_date }}</span>
     <p>{{ $project->description }}</p>
+    <span>@foreach ($project->technologies as $tecnology)
+        <span>{{$tecnology->name}}</span>
+    @endforeach</span>
     <a class="btn btn-outline-primary" href="{{route("project.index")}}">Torna ai progetti</a>
     
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

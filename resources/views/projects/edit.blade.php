@@ -16,13 +16,24 @@
             <input type="text" id="client" name="client" value="{{ $project->client}}">
         </div>
         <div class="form-control mb-3 d-flex flex-column">
-            <label for="type_id">Linguaggio</label>
+            <label for="type_id">Tipologia</label>
             <select class="form-select"  id="type_id" name="type_id">
                  <option selected>{{ $project->type['name']}}</option>
                 @foreach ($types as $type)
                      <option value={{$type->id}}>{{$type->name}}</option>
                 @endforeach
             </select>
+        </div>
+        {{-- @dd($project['technologies']) --}}
+                <div class="form-control mb-3 d-flex flex-column">
+            <label for="start_date">Tecnologie</label>
+            <section class="">
+                @foreach ($technologies as $technology)
+                    <input class="form-check-input me-1" type="checkbox" name="technologies[]" value="{{ $technology->id }}"
+                        id="tag-{{ $technology->id }}"@checked($project->technologies->contains('id', $technology->id))>
+                    <label class="form-check-label me-3" for="tag-{{ $technology->id }}">{{ $technology->name }} </label>
+                @endforeach
+            </section>
         </div>
         <div class="form-control mb-3 d-flex flex-column">
             <label for="start_date">Data inizio progetto</label>
